@@ -15,8 +15,8 @@ const Post: React.FC = () => (
       <p>
         The world of data is constantly evolving. With such rapid changes, the
         architectures and strategies we use to handle and process data must also
-        adapt. This is where the concept of "Lakehouse" enters the scene,
-        bridging the capabilities of both data lakes and data warehouses.
+        adapt. This is where the concept of &quot;Lakehouse&quot; enters the
+        scene, bridging the capabilities of both data lakes and data warehouses.
       </p>
 
       <h2>Understanding the Basics</h2>
