@@ -6,12 +6,26 @@ const style: Interpolation<Global> = {
     margin: "2cm",
   },
   "::-moz-selection": {
-    color: "#ffffff",
-    backgroundColor: "rgba(0, 0, 0, 1)",
+    color: "var(--background-color)",
+    backgroundColor: "var(--font-color)",
   },
   "::selection": {
-    color: "#ffffff",
-    backgroundColor: "rgba(0, 0, 0, 1)",
+    color: "var(--background-color)",
+    backgroundColor: "var(--font-color)",
+  },
+  ":root": {
+    "--font-color": "#000",
+    "--font-color-grey": "#aaa",
+    "--background-color": "#fff",
+    "--background-color-light": "#fafafa",
+    "--link-color": "blue",
+  },
+  '[data-theme="dark"]': {
+    "--font-color": "#fff",
+    "--font-color-grey": "#999",
+    "--background-color": "#111",
+    "--background-color-light": "#181818",
+    "--link-color": "lightblue",
   },
   "html, body": {
     position: "relative",
@@ -27,7 +41,9 @@ const style: Interpolation<Global> = {
     },
   },
   body: {
-    color: "#000",
+    backgroundColor: "var(--background-color)",
+    color: "var(--font-color)",
+    transition: "color .2s ease, background-color .2s ease",
   },
   "select, input, button, textarea": {
     border: 0,

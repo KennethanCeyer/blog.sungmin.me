@@ -1,22 +1,26 @@
 import Layout from "@/components/Layout";
+import Album from "@/components/blog/Album";
+import Cover from "@/components/blog/Cover";
 import styled from "@emotion/styled";
 import React from "react";
-import Cover from "../components/blog/Cover";
 
 const HomeContainer = styled.main({
   display: "flex",
   flexDirection: "column",
-  rowGap: 120,
-  "@media print": {
-    rowGap: 60,
-  },
+  rowGap: 40,
 });
+
+const Section = styled.section();
 
 const Home: React.FC = () => {
   return (
-    <Layout>
+    <Layout main={true}>
       <HomeContainer>
         <Cover></Cover>
+        <Section>
+          <h1>The deep-phase of Engineering</h1>
+          <Album></Album>
+        </Section>
       </HomeContainer>
     </Layout>
   );

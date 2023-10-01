@@ -3,13 +3,13 @@ import styled from "@emotion/styled";
 import React from "react";
 
 interface LayoutProps {
+  main?: boolean;
   header?: boolean;
   children?: React.ReactNode;
 }
 
 const LayoutContainer = styled.main({
   height: "100vh",
-  backgroundColor: "#FFFFFF",
   "@media print": {
     height: "auto",
   },
@@ -18,7 +18,8 @@ const LayoutContainer = styled.main({
 interface BodyStyleProps {
   header?: boolean;
 }
-const Body = styled.div<BodyStyleProps>(({ header }: BodyStyleProps) => ({
+
+const Body = styled.div<BodyStyleProps>(({ header }) => ({
   height: header ? "calc(100% - 60px)" : "120vh",
   boxSizing: "border-box",
   overflowY: "auto",
@@ -26,9 +27,14 @@ const Body = styled.div<BodyStyleProps>(({ header }: BodyStyleProps) => ({
     overflow: "visible",
   },
 }));
-const BodyInner = styled.div({
+
+interface BodyInnerStyleProps {
+  main?: boolean;
+}
+
+const BodyInner = styled.div<BodyInnerStyleProps>(({ main }) => ({
   position: "relative",
-  width: 940,
+  width: main ? 1400 : 940,
   minHeight: "100%",
   margin: "0 auto",
   padding: "80px 0",
@@ -38,13 +44,17 @@ const BodyInner = styled.div({
     width: "100%",
     padding: 0,
   },
-});
+}));
 
-const Layout: React.FC<LayoutProps> = ({ header = true, children }) => (
+const Layout: React.FC<LayoutProps> = ({
+  main = false,
+  header = true,
+  children,
+}) => (
   <LayoutContainer>
     {header && <Header />}
     <Body header={header}>
-      <BodyInner>{children}</BodyInner>
+      <BodyInner main={main}>{children}</BodyInner>
     </Body>
   </LayoutContainer>
 );
