@@ -11,6 +11,7 @@ const Album = () => (
   <AlbumContainer>
     {Array.from(Array(9), (_, i) => (
       <Item
+        key={i}
         metadata={{
           title: `Test ${i}`,
           authors: ["sungmin.han"],
